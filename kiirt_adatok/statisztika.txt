@@ -1,0 +1,5 @@
+A beolvasott fájlban összesen 29 könyv szerepel.
+A legtöbb oldalas könyv: A gróf Monte Cristo
+A legkevesesbb oldalas könyv: A kis herceg
+A legtöbb könyvet író szerző/szerzők: ['J.R.R. Tolkien', 'J.K. Rowling', 'Stephen King']
+Az átlagos oldalszám: 539.86

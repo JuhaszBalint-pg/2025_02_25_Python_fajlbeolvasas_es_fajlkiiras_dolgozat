@@ -56,23 +56,35 @@ for konyv in konyvek:
 print(f"3. A legkevesesbb oldalas könyv: {legkevesebb_oldalu_konyv}")
 
 #4. feladat: Melyik szerző írt a legtöbb könyvet?
+irok = {
+
+}
 for konyv in konyvek:
-    
+    if konyv['szerző'] in irok:
+        irok[konyv['szerző']] += 1
+    else:
+        irok[konyv['szerző']] = 1
 
+legtobbetirtak = []
+legtobbetirt = 0
+for k, v in irok.items():
+    if legtobbetirt < v or legtobbetirt == v:
+        legtobbetirt = v
+        legtobbetiro = k
+        legtobbetirtak.append(k)
 
-
-print(f"4. A legtöbb könyvet író szerző:")
+print(f"4. A legtöbb könyvet író szerző/szerzők: {legtobbetirtak}")
 
 #5. feladat: Átlagosan hány oldalasak a könyvek?
 osszoldalszam = 0
 for konyv in konyvek:
     osszoldalszam += konyv['oldalszám']
     atlagoldalszam = osszoldalszam/len(konyvek)
-print(f"5. Az átlagos oldalszám: {oldalszam}")
+print(f'5. Az átlagos oldalszám: {atlagoldalszam:.2f}')
 
 with open('kiirt_adatok\statisztika.txt', 'w', encoding='utf-8') as celfajl:
     celfajl.write(f'A beolvasott fájlban összesen {konyvekszama} könyv szerepel.\n')
     celfajl.write(f'A legtöbb oldalas könyv: {legtobb_oldalu_konyv}\n')
     celfajl.write(f'A legkevesesbb oldalas könyv: {legkevesebb_oldalu_konyv}\n')
-    celfajl.write(f'\n')
-    celfajl.write(f'Az átlagos oldalszám: {oldalszam}')
+    celfajl.write(f'A legtöbb könyvet író szerző/szerzők: {legtobbetirtak}\n')
+    celfajl.write(f'Az átlagos oldalszám: {atlagoldalszam:.2f}')
